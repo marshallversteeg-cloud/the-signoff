@@ -12,6 +12,16 @@
     <itunes:category text="Technology"/>
     <itunes:explicit>false</itunes:explicit>
     <itunes:block>Yes</itunes:block>
-
+    <item>
+      <title>1. Spec to layout: how far can agents get?</title>
+      <guid isPermaLink="false">signoff-ep001</guid>
+      <pubDate>Sat, 24 Oct 2026 12:00:00 +0000</pubDate>
+      <description><![CDATA[<p>GPT-Synopsys, NVIDIA's chip-design partners at SEMICON West, Rambus going company-wide with ChipAgents, a deep dive on Build-A-Chip Bench, and a verification corner on why a passing tool isn't proof of intent.</p><p>Sources:</p><ul><li><a href="https://anysilicon.com/news/openai-and-synopsys-announce-gpt-synopsys-frontier-intelligence-to-revolutionize-chip-design/">OpenAI and Synopsys announce GPT-Synopsys (AnySilicon)</a></li><li><a href="https://www.globenewswire.com/news-release/2026/10/14/3380979/0/en/nvidia-and-semiconductor-leaders-advance-ai-across-chip-design-and-manufacturing-for-ai-defined-fabs.html">NVIDIA and semiconductor leaders advance AI across chip design and manufacturing (GlobeNewswire)</a></li><li><a href="https://semiengineering.com/chip-industry-week-in-review-161/">Chip Industry Week In Review, Oct 23 (Semiconductor Engineering)</a></li><li><a href="https://unite.ai/chipagents-expands-series-a-to-134-million-as-ai-agents-move-deeper-into-semiconductor-design/">ChipAgents expands Series A to $134 million (Unite.AI)</a></li><li><a href="https://finviz.com/news/404307/socionext-expands-agentic-ai-to-advanced-large-scale-soc-physical-design">Socionext expands agentic AI to large-scale SoC physical design (Finviz)</a></li><li><a href="https://www.chipagents.ai/research/build-a-chip-bench">Build-A-Chip Bench results (ChipAgents)</a></li><li><a href="https://semiwiki.com/eda/chipagents-ai/374909-chipagents-and-nvidia-put-autonomous-chip-design-to-the-test/">ChipAgents and NVIDIA put autonomous chip design to the test (SemiWiki)</a></li><li><a href="https://arxiv.org/abs/2610.10580">A Survey on LLM-Integrated Hardware Design Verification (arXiv)</a></li></ul><p>Researched and written by Claude; voiced with synthetic speech.</p>]]></description>
+      <itunes:summary>GPT-Synopsys, NVIDIA's chip-design partners at SEMICON West, Rambus going company-wide with ChipAgents, a deep dive on Build-A-Chip Bench, and a verification corner on why a passing tool isn't proof of intent.</itunes:summary>
+      <itunes:episode>1</itunes:episode>
+      <itunes:duration>00:12:21</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <enclosure url="https://marshallversteeg-cloud.github.io/the-signoff/episodes/001/episode.mp3" length="5931929" type="audio/mpeg"/>
+    </item>
   </channel>
 </rss>

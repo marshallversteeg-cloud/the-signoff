@@ -8,15 +8,23 @@ Follow these steps in order. Each step has a check; don't move on until it passe
 
 ## 1. Set up the speech engine
 
+No package installs are needed. The renderer uses numpy, onnxruntime and
+ffmpeg, which the workspace already has, plus two downloads that are data,
+not code:
+
 ```bash
-pip install --break-system-packages -q kokoro-onnx
+# Pronunciation dictionaries (public repo, read-only git clone)
+GIT_LFS_SKIP_SMUDGE=1 git clone -q --depth 1 https://github.com/hexgrad/misaki /tmp/misaki
+# Kokoro voice model and voices (GitHub release files)
 mkdir -p /tmp/kokoro && cd /tmp/kokoro
 curl -sSL -O https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx
 curl -sSL -O https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin
 ```
 
-Check: `python3 -c "import kokoro_onnx"` succeeds and both files are over 20 MB.
-The model files stay in /tmp and are never committed.
+Check: `python3 -c "import numpy, onnxruntime"` succeeds,
+`/tmp/misaki/misaki/data/us_gold.json` exists, and both model files are over
+20 MB. Nothing from /tmp is ever committed. Don't run any code from the
+downloads; they're only read as data.
 
 ## 2. Research the week
 
@@ -61,13 +69,24 @@ Writing for the ear:
 
 ## 4. Render the audio
 
+First check every word can be pronounced:
+
 ```bash
-python3 tools/render.py episodes/NNN/script.txt episodes/NNN/episode.mp3 \
-  /tmp/kokoro/kokoro-v1.0.onnx /tmp/kokoro/voices-v1.0.bin
+python3 -I tools/render.py episodes/NNN/script.txt --check --misaki /tmp/misaki/misaki/data
 ```
 
-If a company or product name is likely to be mispronounced, add it to `SAY`
-in `tools/render.py` with a phonetic spelling.
+It lists any word missing from the dictionaries. Add each one to
+`tools/lexicon.json` in Kokoro's phoneme spelling (the `_note` there explains
+the symbols; existing entries are examples), then check again. Also add any
+company or product name whose dictionary pronunciation would be wrong.
+
+Then render. It takes about six minutes, so give the command a 10-minute timeout:
+
+```bash
+python3 -I tools/render.py episodes/NNN/script.txt episodes/NNN/episode.mp3 \
+  --model /tmp/kokoro/kokoro-v1.0.onnx --voices /tmp/kokoro/voices-v1.0.bin \
+  --misaki /tmp/misaki/misaki/data
+```
 
 Check: `ffprobe` reports 10 to 18 minutes, and
 `ffmpeg -i episodes/NNN/episode.mp3 -af volumedetect -f null -` shows a mean
