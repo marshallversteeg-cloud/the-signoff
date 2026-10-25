@@ -1,0 +1,125 @@
+MAYA: AI agents were handed chip specifications and told to take each one all the way to a finished layout. On a scale where a perfect agent scores a hundred, the best one scored under seventeen. That's either terrible or remarkable, depending on what you expected.
+
+THEO: And that's where we'll end up today. Welcome to The Signoff, a weekly show about AI in chip design, with a regular stop in verification. I'm Theo.
+
+MAYA: And I'm Maya. Quick note before we start: we're synthetic voices, and this show is researched and written by an AI, Claude. Every claim comes from a source, and the links are in the show notes.
+
+THEO: This is our first episode, so we're covering a little more ground than usual, roughly the last three weeks. Headlines first, then a deep dive on a new benchmark for autonomous chip design, and then our verification corner.
+
+MAYA: Let's go.
+
+THEO: Headline one. On September thirtieth, OpenAI and Synopsys announced something they're calling G-P-T Synopsys. It's a specialized model the two companies are building together, and the pitch is that it doesn't just answer questions about chip design. It's built to operate Synopsys's design tools directly.
+
+MAYA: So what does an engineer actually do with it?
+
+THEO: The way they describe it, you hand it an objective. Optimize power, performance and area. Close timing. Close verification. The agents run the tools, read the results, make changes, and keep iterating until they reach a verified outcome. Then an engineer reviews what came back.
+
+MAYA: That last part matters. The engineer is still the one signing off.
+
+THEO: Right. A few other details. It runs on OpenAI's infrastructure, it's meant to plug into a customer's own agent setup, and the companies say customer design data isn't used to train the model. There's a revenue sharing arrangement between them. What there isn't, yet, is a general release date. They say early engagements with leading chip companies are underway.
+
+MAYA: So it's a direction more than a product you can buy today.
+
+THEO: That's my read.
+
+MAYA: Headline two comes from SEMICON West in San Francisco on October fourteenth, where NVIDIA rolled out a long list of partners using its accelerated computing libraries across chip design and manufacturing. Most of it is about the fab side, things like etch modeling and lithography. But a few items land squarely in design.
+
+THEO: Such as?
+
+MAYA: Synopsys said its AgentEngineer products support AI agents for chip design and verification, built with NVIDIA's Nemotron models. Cadence pointed to its ChipStack AI Super Agent, which handles design and verification, and to a packaging agent it says optimizes advanced packages for heat and mechanical stress eight times faster. And Siemens is using NVIDIA's lithography library to speed up its Calibre mask preparation software.
+
+THEO: So all three of the big design software vendors are in the agent business now.
+
+MAYA: All three. Which sets up headline three, because the startups are not standing still. According to Semiconductor Engineering's weekly roundup, Rambus is rolling out ChipAgents' agentic platform across the whole company, for chip and I-P design and verification. And Rambus became a strategic investor in ChipAgents.
+
+THEO: Some context on ChipAgents. Over the summer they expanded their Series A to a hundred and thirty-four million dollars, and they say their tools are deployed at more than a hundred and twenty semiconductor companies. That's their claim, not an independent count, but it's a big number for a young company.
+
+MAYA: A company-wide rollout at an established I-P company is a meaningful signal. Pilots are easy. Rolling it out to everyone is a decision.
+
+THEO: Two quicker ones. Socionext says it's using Cadence's AI agents for the physical design of a large three-nanometer system-on-chip. And Altera added an AI assistant to its F-P-G-A design software.
+
+MAYA: The pattern across all of these is the same. Not long ago the conversation was about AI as a copilot that suggests code. Now every announcement is about agents that run the tools themselves and iterate.
+
+THEO: Which raises the obvious question. How good are they, really? And that's our deep dive.
+
+MAYA: On October fourteenth, ChipAgents and NVIDIA released something called Build-A-Chip Bench. The idea is simple to say and hard to do. Give an AI agent a specification, and see whether it can carry the design all the way through to a finished physical layout. The file format for that final layout is called G-D-S, so the shorthand is spec to G-D-S.
+
+THEO: All the way through. Not just writing the R-T-L, the hardware code.
+
+MAYA: All the way. The benchmark covers architecture, microarchitecture, the R-T-L itself, functional verification, synthesis, floorplanning, placement, clock tree synthesis, routing, timing and power signoff, and physical verification. Every task ends with a layout.
+
+THEO: How do they score it? Because "did it finish" isn't very interesting.
+
+MAYA: This is the part I like. Each task has three checks. First, does the design pass functional verification? And here's the clever bit: it's checked against a hidden verification suite. The agent never sees the tests it's graded on.
+
+THEO: So it can't write its own exam.
+
+MAYA: Exactly. Second, does it produce a clean layout? And third, how close does it get to the power, performance and area targets, on a scale from zero to a hundred percent? A task only earns its quality score if it passes the first two checks. Otherwise it scores zero. Then they average across all the tasks.
+
+THEO: Okay. Results.
+
+MAYA: The top agent was powered by Anthropic's Claude Fable five point one, with an overall score of sixteen point six percent. It passed functional verification on sixty-five percent of tasks, produced a clean layout on seventy-five percent, and averaged about twenty-five percent on the quality target.
+
+THEO: And second place?
+
+MAYA: Second was OpenAI's G-P-T six Astra at eight point seven percent. And this is the interesting wrinkle. Astra actually passed functional verification more often, eighty-five percent of the time, and produced clean layouts eighty-five percent of the time too. Where it fell behind was quality, about ten percent against the targets.
+
+THEO: So the model that was more often correct still lost, because its designs weren't as good.
+
+MAYA: Right. Getting a working chip and getting a competitive chip are different skills. After those two, the numbers drop off a cliff. Gemini three point eight Flash scored under one percent, Kimi K three was at zero point two, and G-L-M five point three scored zero.
+
+THEO: Let's put some caveats on this, because there are real ones.
+
+MAYA: Several. ChipAgents built the benchmark, with NVIDIA contributing to the tasks and the scoring rules. ChipAgents also sells agents, so they're not a neutral party. The number of tasks isn't disclosed. And the results haven't been reproduced by anyone independent yet.
+
+THEO: And yet I think the design of it is the real news. Two hard gates, functional correctness against tests the agent can't see, and a clean layout. Then quality on top. That's roughly how a real chip team would judge the work.
+
+MAYA: Agreed. And the headline number tells you where we are. Even the best system scored under seventeen out of a hundred. That's a long way from autonomous chip design. But a benchmark like this only makes sense to build once agents can attempt the whole flow at all.
+
+THEO: Which brings us to the verification corner.
+
+MAYA: This week's pick is a paper posted on October sixth: A Survey on L-L-M Integrated Hardware Design Verification, from Hao Zheng, Jaime Rafael Imperial, Bardia Nadimi and Xiangfei Kong at the University of South Florida.
+
+THEO: Why a survey? Surveys aren't usually exciting.
+
+MAYA: Because this one says something in plain language that a lot of the field has been dancing around. Its central claim is that large language models are most useful in verification as the reasoning and orchestration layer. They read the spec, decide what to check, and drive the tools. But the evidence that a design is correct has to come from the tools themselves: simulators, formal engines, coverage tools and solvers.
+
+THEO: That's the same principle as the hidden test suite in Build-A-Chip Bench.
+
+MAYA: It's exactly the same principle. And then the authors add a warning I think every team should tape to the wall. A tool accepting your work doesn't mean the work is right. An assertion can pass. A test can pass. Even a formal proof can pass. And all of them can still miss what the designer actually intended.
+
+THEO: Give me an example of how that happens.
+
+MAYA: The simplest one is a vacuous assertion. Say you write a check that says "whenever the request signal goes high, an acknowledge must follow." If the design never raises the request signal in any reachable state, that check passes every time, and it has proven nothing. The survey calls out vacuity, along with redundant checks and inconsistent ones, as things you have to measure across the whole set of assertions, not just one at a time.
+
+THEO: Where has the field made the most progress?
+
+MAYA: Assertion generation is the most mature area. The work has moved from simple templates, to translating English into SystemVerilog assertions, to agentic systems that read the spec, ground it in the actual design, and refine against tool feedback. There's an interesting trade-off in when you generate them.
+
+THEO: Before or after the R-T-L exists?
+
+MAYA: Right. If you generate from the spec before the R-T-L exists, your checks stay independent of the design, which is good. But it's hard to map them onto real signal names and timing. If you generate from the R-T-L, that mapping is easy. But you risk copying the design's bugs straight into your checks.
+
+THEO: Which is the trap you'd fall into if the same AI writes the design and the tests.
+
+MAYA: That's the worry. The survey also notes that smaller models fine-tuned for this can match much bigger general models. But mostly they learn how to write a property, not which properties a design actually needs. Knowing what to check is still the hard part.
+
+THEO: And for the agentic systems?
+
+MAYA: Their advice is practical. More autonomy means more cost and more chances for an early mistake to snowball. So make the intermediate steps checkable on their own: the extracted requirements, the signal mappings, the verification plan. And report the cost honestly, meaning how many tool calls, how many iterations, how much human help it took.
+
+THEO: Last question. What do they say is still unsolved?
+
+MAYA: Four big things. Making sure the verification evidence actually lines up with the spec. Scaling up, because most methods are still tested on small designs. Generalizing to designs the model has never seen. And evaluating all of this rigorously, including cost and human effort, not just pass rates.
+
+THEO: So if you put this week's two stories side by side, you get a clear picture. Agents can now drive the whole flow, sometimes. And the field is getting serious about how to tell whether they did it right.
+
+MAYA: That's the verification problem in one sentence. As AI writes more of the design, the thing that matters most is independent evidence that the design does what was intended.
+
+THEO: One thing to watch before next week. ChipAgents is running a webinar on October twenty-ninth about what it calls full-flow autonomy, from digital to analog design. Worth seeing whether they share more about how their own agents perform on this benchmark.
+
+MAYA: And more broadly, watch for anyone reproducing Build-A-Chip Bench independently, and for the first real customer results from G-P-T Synopsys.
+
+THEO: That's the show. Sources are in the show notes. We'll be back next week.
+
+MAYA: Thanks for listening to The Signoff.

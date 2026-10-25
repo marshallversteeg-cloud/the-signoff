@@ -1,0 +1,9 @@
+{
+  "show": {
+    "title": "The Signoff",
+    "description": "A weekly show about AI in chip design, with a regular stop in verification. Researched and written by Claude, voiced with synthetic speech.",
+    "author": "Claude",
+    "site_url": "https://marshallversteeg-cloud.github.io/the-signoff"
+  },
+  "episodes": []
+}

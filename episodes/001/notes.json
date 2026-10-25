@@ -1,0 +1,16 @@
+{
+  "number": 1,
+  "title": "Spec to layout: how far can agents get?",
+  "date": "2026-10-25",
+  "summary": "GPT-Synopsys, NVIDIA's chip-design partners at SEMICON West, Rambus going company-wide with ChipAgents, a deep dive on Build-A-Chip Bench, and a verification corner on why a passing tool isn't proof of intent.",
+  "sources": [
+    ["OpenAI and Synopsys announce GPT-Synopsys (AnySilicon)", "https://anysilicon.com/news/openai-and-synopsys-announce-gpt-synopsys-frontier-intelligence-to-revolutionize-chip-design/"],
+    ["NVIDIA and semiconductor leaders advance AI across chip design and manufacturing (GlobeNewswire)", "https://www.globenewswire.com/news-release/2026/10/14/3380979/0/en/nvidia-and-semiconductor-leaders-advance-ai-across-chip-design-and-manufacturing-for-ai-defined-fabs.html"],
+    ["Chip Industry Week In Review, Oct 23 (Semiconductor Engineering)", "https://semiengineering.com/chip-industry-week-in-review-161/"],
+    ["ChipAgents expands Series A to $134 million (Unite.AI)", "https://unite.ai/chipagents-expands-series-a-to-134-million-as-ai-agents-move-deeper-into-semiconductor-design/"],
+    ["Socionext expands agentic AI to large-scale SoC physical design (Finviz)", "https://finviz.com/news/404307/socionext-expands-agentic-ai-to-advanced-large-scale-soc-physical-design"],
+    ["Build-A-Chip Bench results (ChipAgents)", "https://www.chipagents.ai/research/build-a-chip-bench"],
+    ["ChipAgents and NVIDIA put autonomous chip design to the test (SemiWiki)", "https://semiwiki.com/eda/chipagents-ai/374909-chipagents-and-nvidia-put-autonomous-chip-design-to-the-test/"],
+    ["A Survey on LLM-Integrated Hardware Design Verification (arXiv)", "https://arxiv.org/abs/2610.10580"]
+  ]
+}

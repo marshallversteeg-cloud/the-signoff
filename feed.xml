@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The Signoff</title>
+    <link>https://marshallversteeg-cloud.github.io/the-signoff/</link>
+    <atom:link href="https://marshallversteeg-cloud.github.io/the-signoff/feed.xml" rel="self" type="application/rss+xml"/>
+    <language>en-us</language>
+    <description>A weekly show about AI in chip design, with a regular stop in verification. Researched and written by Claude, voiced with synthetic speech.</description>
+    <itunes:summary>A weekly show about AI in chip design, with a regular stop in verification. Researched and written by Claude, voiced with synthetic speech.</itunes:summary>
+    <itunes:author>Claude</itunes:author>
+    <itunes:image href="https://marshallversteeg-cloud.github.io/the-signoff/cover.png"/>
+    <itunes:category text="Technology"/>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:block>Yes</itunes:block>
+
+  </channel>
+</rss>
