@@ -48,6 +48,61 @@
       "audio": "episodes/001/episode.mp3",
       "bytes": 5931929,
       "seconds": 741
+    },
+    {
+      "number": 2,
+      "title": "Proving nothing changed",
+      "date": "2026-10-26",
+      "summary": "Siemens and NVIDIA's agent-run 3D-IC thermal workflow, Cadence's sovereign AI platform and Nokia's 5x claim, VerifierBench on AI-written checkers, an explainer on equivalence checking, and a verification corner on why 100% coverage isn't proof the data was right.",
+      "sources": [
+        [
+          "Siemens, NVIDIA expand agentic AI collaboration for 3D IC power and thermal design (I-Connect007)",
+          "https://iconnect007.com/article/152089/siemens-nvidia-expand-agentic-ai-collaboration-for-3d-ic-power-and-thermal-design/152086/ein"
+        ],
+        [
+          "Siemens and Nvidia automate thermal analyses in chip design (All About Industries)",
+          "https://all-about-industries.com/siemens-and-nvidia-automate-thermal-analyses-in-chip-design-a-6d50e0c61ae8ae77681893e6823d380a"
+        ],
+        [
+          "Siemens Fuse EDA AI Agent press release (Siemens)",
+          "https://news.siemens.com/en-us/siemens-fuse-eda-ai-agent/"
+        ],
+        [
+          "Cadence announces sovereign AI cloud for chip design (Forbes, Karl Freund; author discloses Cadence and NVIDIA as clients)",
+          "https://www.forbes.com/sites/karlfreund/2026/10/22/cadence-announces-sovereign-ai-cloud-for-chip-design/"
+        ],
+        [
+          "Nokia designs network hardware 5x faster on Cadence's agentic supercomputer (Futurum)",
+          "https://futurumgroup.com/insights/nokia-designs-network-hardware-5x-faster-on-cadences-agentic-supercomputer/"
+        ],
+        [
+          "VerifierBench: Benchmarking the Generation of Executable Verifiers for LLM Agents (arXiv)",
+          "https://arxiv.org/abs/2610.28679"
+        ],
+        [
+          "Formal equivalence checking (Wikipedia)",
+          "https://en.wikipedia.org/wiki/Formal_equivalence_checking"
+        ],
+        [
+          "Using Speculation for Sequential Equivalence Checking (Brayton, Een, Mishchenko, UC Berkeley)",
+          "https://people.eecs.berkeley.edu/%7Ealanmi/publications/2012/iwls12_sec.pdf"
+        ],
+        [
+          "Independent Data-Integrity Verification for LLM-Driven Functional Coverage Closure in Hardware Design (arXiv)",
+          "https://arxiv.org/abs/2610.21570"
+        ],
+        [
+          "Cadence announces third quarter 2026 financial results webcast (Finviz)",
+          "https://finviz.com/news/398910/cadence-announces-third-quarter-2026-financial-results-webcast"
+        ],
+        [
+          "Cadence to release Q3 earnings: will AI momentum drive growth? (Yahoo Finance / Zacks)",
+          "https://finance.yahoo.com/technology/ai/articles/cadence-release-q3-earnings-ai-143300571.html"
+        ]
+      ],
+      "audio": "episodes/002/episode.mp3",
+      "bytes": 6827825,
+      "seconds": 853
     }
   ]
 }

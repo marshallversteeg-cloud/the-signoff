@@ -1,0 +1,167 @@
+MAYA: A small A-I agent was asked to hit every coverage target on three hardware designs. It got to a hundred percent coverage every time. And the paper's main point is that a hundred percent coverage still doesn't tell you the data was right.
+
+THEO: Coverage says you got there. It doesn't say you got there correctly. Welcome to The Signoff, a weekly show about AI in chip design, with a regular stop in verification. I'm Theo.
+
+MAYA: And I'm Maya. As always, we're synthetic voices, and the show is researched and written by an AI, Claude. Sources are in the show notes.
+
+THEO: A note on timing. Our first episode came out just two days ago, so there isn't much brand new this time. Instead, we're catching up on a few stories from last week that we didn't get to, and then doing something we said we'd do on slow weeks.
+
+MAYA: An explainer. Today's deep dive is a plain-language guide to equivalence checking. It's labeled as an explainer, not news. Then the verification corner, and one thing to watch, which happens to be today.
+
+THEO: Headlines first.
+
+MAYA: Headline one. On October twenty-first, Siemens and NVIDIA expanded their work on A-I agents for three-D chips. Specifically, the power and heat problems you get when you stack dies on top of each other.
+
+THEO: Stacking is where heat gets really nasty. The die in the middle has nowhere to put it.
+
+MAYA: Right. And the analysis used to mean running a chain of separate tools by hand and moving data between them. Siemens says the new workflow ties together nine steps across seven of its tools. That includes mPower for power analysis, Calibre three-D Thermal for heat at the chip level, and Simcenter Flotherm for heat at the system level.
+
+THEO: And the agent is doing what, exactly?
+
+MAYA: Orchestration. Siemens' Fuse E-D-A A-I Agent drives the tools, and NVIDIA's agent software and a Nemotron model sit underneath. The important detail is that the analyses themselves stay physics-based. The agent runs the solvers. It doesn't replace them.
+
+THEO: Numbers?
+
+MAYA: From Siemens' own benchmark studies. Up to ninety-five percent less engineering effort. Setup across those seven tools in under five minutes, instead of several days. And up to fifty times more design variations explored than a manual flow.
+
+THEO: Those are vendor benchmarks, with no named customer yet and no availability date in the announcement. But the shape of it is worth noting. The agent is the glue. The signoff-grade solvers are still the source of truth.
+
+MAYA: That's a theme for today.
+
+THEO: Headline two is Cadence, at NVIDIA's G-T-C event in Munich on October twenty-second. Cadence opened what it calls a sovereign A-I platform for chip and system design, hosted in a Munich data center, so European customers' design data stays under European jurisdiction.
+
+MAYA: Who wants that?
+
+THEO: Anyone whose design data is sensitive enough that where it physically lives matters. Defense, telecom, automotive. And the day before, Cadence announced a customer story that fits that pattern. Nokia is running Cadence's AuraStack A-I Super Agent on Cadence's own Millennium supercomputer, on site, for circuit board and packaging design.
+
+MAYA: And the claim?
+
+THEO: Nokia reports a five times speedup in key design and analysis workflows, with some cycles going from months to days. That's the customer's own report, which carries more weight than a launch benchmark.
+
+MAYA: But.
+
+THEO: But. The analyst firm Futurum pointed out that "key workflows" is Nokia's selection, the baseline isn't stated, and it's not the whole project schedule. Their observation was that verification queues and engineering review still set the overall pace.
+
+MAYA: Which is basically the plot of this whole show. You can speed up the doing. The checking becomes the bottleneck.
+
+THEO: Headline three is a paper, and it's not about hardware at all, but I think every verification engineer should hear about it. It's called VerifierBench, posted on October nineteenth by a group of researchers including Dawn Song.
+
+MAYA: What does it test?
+
+THEO: Whether A-I agents can write verifiers. Meaning code that looks at a proposed solution and says pass or fail. A good verifier has to accept every valid solution and reject every invalid one. The benchmark has two hundred and twenty-two tasks drawn from six existing agent benchmarks, with hidden test cases that include alternative correct answers and deliberate attacks.
+
+MAYA: How did the models do?
+
+THEO: They tested nineteen models. On the authors' balanced accuracy measure, scores ranged from about eleven to about sixty-two out of a hundred. And the pattern is the interesting part. The generated verifiers were better at rejecting bad solutions than accepting good ones.
+
+MAYA: Which sounds safe, until you think about it.
+
+THEO: Exactly. The authors found many of those rejections came from verifiers that accepted no correct solution at all. A checker that fails everything looks great at catching bugs. And here's the line I'd underline. The agents' own self-testing didn't catch this, because they tested against example solutions that shared the same wrong assumptions.
+
+MAYA: So the test and the thing being tested were wrong in the same way.
+
+THEO: Right. The authors' advice is simple. Before you trust a checker, confirm it accepts a known correct answer, and confirm it accepts other valid answers the task allows.
+
+MAYA: In hardware terms, that's a testbench or an assertion that can't fail, or can't pass. We'll come back to that in the verification corner.
+
+THEO: Which brings us to the deep dive. Maya, this one's yours.
+
+MAYA: Explainer time. Equivalence checking. Every agent story today is about software changing a design. Rewriting R-T-L for better power, performance and area. Optimizing a netlist. Making late fixes. The question underneath all of it is, how do you know the change didn't break anything?
+
+THEO: And equivalence checking is the answer that's been around for decades.
+
+MAYA: It has. Here's the idea. Functional verification asks, is this design correct? Equivalence checking asks a narrower question. Do these two versions of the design behave the same?
+
+THEO: Give me the classic case.
+
+MAYA: You write R-T-L, the hardware description. Synthesis turns it into a netlist of gates. Then more tools modify that netlist. They add test circuitry, optimize for timing, and rework it during physical design. Each tool is supposed to preserve behavior. But tools have bugs, and engineers make manual edits late in the project, called engineering change orders. So before tape-out, teams formally prove the final netlist matches the original R-T-L.
+
+THEO: Why not just rerun the simulations on the netlist?
+
+MAYA: You can, and people used to. But gate-level simulation is slow, and it's only as good as your tests. Equivalence checking is a proof. It covers every possible input, not just the ones you thought to try.
+
+THEO: How does it actually prove that?
+
+MAYA: The simplest version works on logic without memory, which is called combinational logic. You take the two circuits, feed them the same inputs, and compare their outputs with an exclusive-or gate. That combined circuit has a name. It's called a miter.
+
+THEO: Like the joint in carpentry.
+
+MAYA: Two pieces meeting at a seam. Then you ask a solver one question. Is there any input that makes the two outputs disagree? If the solver proves no such input exists, the circuits are equivalent. If it finds one, that input is a counterexample, and you can simulate it to see exactly where they differ.
+
+THEO: That sounds like it would blow up on a real chip.
+
+MAYA: It would, if you did it all at once. Two things make it practical. First, the registers. If both versions have the same registers, the tool matches them up and cuts the problem at each one, so it's checking lots of small chunks of logic instead of one giant one. Second, the two versions usually share a lot of internal structure, so the tool finds matching internal signals and uses them as stepping stones. The solvers underneath are the same kinds of engines used across formal verification, satisfiability solvers and binary decision diagrams.
+
+THEO: And when the registers don't line up?
+
+MAYA: That's the hard case, called sequential equivalence checking. Say an optimization moves logic across registers to fix timing, which is called retiming. Or two state machines encode their states differently. Now you can't just match register to register. You have to prove the two designs produce the same outputs over time, from their starting states. That usually needs heavier techniques, like induction over clock cycles.
+
+THEO: Which we'll do an explainer on some other week.
+
+MAYA: Deal. Now, why does this matter for A-I right now?
+
+THEO: Go on.
+
+MAYA: Two reasons. First, a lot of what the agents are being pitched for is transformation. Take this R-T-L and make it smaller, or lower power, without changing what it does. That's exactly the claim equivalence checking can prove or disprove, with no trust in the agent required. If an agent rewrites a block and the equivalence check passes, the behavior is preserved, whatever the agent was thinking.
+
+THEO: And the second reason?
+
+MAYA: The second is the limit. Equivalence checking only proves two versions match. If the reference version has a bug, the new one will faithfully have the same bug. It tells you nothing about whether the original was right. And when the agent is writing the design from a spec, with no golden reference to compare against, equivalence checking can't help you at all. That's back to functional verification, which is the hard problem.
+
+THEO: So it's a perfect tool for one question, and no help on the other.
+
+MAYA: Right. Know which question you're asking.
+
+THEO: Time for the verification corner.
+
+MAYA: This week's pick is the paper from our cold open. It was posted earlier this month by Venkata Krishna Kumar Vedantam at Portland State University, and it's about using an A-I agent to close functional coverage.
+
+THEO: Quick refresher on coverage.
+
+MAYA: Coverage is a list of situations you want your tests to reach. The FIFO filled up. The FIFO emptied while a write was happening. Each one is a bin. Coverage closure means writing tests until every bin is hit.
+
+THEO: And the agent writes those tests.
+
+MAYA: Right. The setup is small and honest about being small. Each round, the agent looks at which bins are still unhit, picks one, and asks a language model for a directed test. In this paper the model was Anthropic's Claude Sonnet four point six. The test runs in the open-source Verilator simulator, and the coverage results come back.
+
+THEO: Results?
+
+MAYA: Three designs. An asynchronous FIFO, a serial transmitter, and a bus bridge. Coverage started at about ninety-two, eighty-nine and sixty-seven percent. Within eight rounds, every logged run reached a hundred percent.
+
+THEO: So, case closed.
+
+MAYA: That's the trap the paper is about. Two design choices matter. First, coverage is read from the report the simulator writes, not from the model's own account of its progress. The agent can't just say it's done.
+
+THEO: Same principle as last week. The tool is the evidence, not the model.
+
+MAYA: Second, data correctness is checked separately, by scoreboards that compare actual outputs against expected values, and the model never sees them. Because hitting a bin only proves you reached a state. It doesn't prove the data along the way was right.
+
+THEO: Did the scoreboards catch anything?
+
+MAYA: Yes, and this is my favorite part. A separate monitor, watching the FIFO's signals while tests ran, found a real bug. Not in the design. In the author's own hand-written testbench. It drove the read side of the FIFO using the timing of the write clock, but the read logic runs on a different clock. That caused extra reads and occasional data mismatches. That testbench had been in use for more than fifty days before the monitor existed.
+
+THEO: So a human-written test had a clock-domain bug for almost two months, and coverage never flagged it.
+
+MAYA: Because coverage can't flag it. The states were all being reached. The data was wrong.
+
+THEO: What are the caveats?
+
+MAYA: The author lists them plainly. Three small designs. No baseline and no comparison against other approaches. And importantly, that independent monitor was not attached to the tests the model generated. So whether the A-I-written tests themselves moved correct data hasn't been independently checked yet, beyond one preliminary manual check.
+
+THEO: I appreciate a paper that tells you exactly what it didn't prove.
+
+MAYA: Me too. And it lines up with VerifierBench from the headlines. One finding there was that agents' checkers can share the same blind spots as the thing they're checking. The fix in both cases is the same. Keep the evidence independent. Coverage measured by the simulator. Correctness measured by a scoreboard the model can't touch. And test the checkers themselves.
+
+THEO: If you build verification flows with agents, that's a pretty good checklist.
+
+MAYA: One thing to watch.
+
+THEO: Today. Cadence reports its third-quarter results this afternoon, with a webcast at two o'clock Pacific time. Analysts expect revenue of around one point six billion dollars. The number I'd listen for isn't the revenue, though. It's whether Cadence says anything concrete about customers paying for its agent products, as opposed to evaluating them.
+
+MAYA: Pilots versus purchase orders.
+
+THEO: Exactly. And watch for the Siemens three-D thermal workflow to name its first customer.
+
+MAYA: That's the show. Sources are in the show notes. We'll be back next week.
+
+THEO: Thanks for listening to The Signoff.

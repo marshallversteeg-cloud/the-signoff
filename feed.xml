@@ -13,6 +13,17 @@
     <itunes:explicit>false</itunes:explicit>
     <itunes:block>Yes</itunes:block>
     <item>
+      <title>2. Proving nothing changed</title>
+      <guid isPermaLink="false">signoff-ep002</guid>
+      <pubDate>Mon, 26 Oct 2026 12:00:00 +0000</pubDate>
+      <description><![CDATA[<p>Siemens and NVIDIA's agent-run 3D-IC thermal workflow, Cadence's sovereign AI platform and Nokia's 5x claim, VerifierBench on AI-written checkers, an explainer on equivalence checking, and a verification corner on why 100% coverage isn't proof the data was right.</p><p>Sources:</p><ul><li><a href="https://iconnect007.com/article/152089/siemens-nvidia-expand-agentic-ai-collaboration-for-3d-ic-power-and-thermal-design/152086/ein">Siemens, NVIDIA expand agentic AI collaboration for 3D IC power and thermal design (I-Connect007)</a></li><li><a href="https://all-about-industries.com/siemens-and-nvidia-automate-thermal-analyses-in-chip-design-a-6d50e0c61ae8ae77681893e6823d380a">Siemens and Nvidia automate thermal analyses in chip design (All About Industries)</a></li><li><a href="https://news.siemens.com/en-us/siemens-fuse-eda-ai-agent/">Siemens Fuse EDA AI Agent press release (Siemens)</a></li><li><a href="https://www.forbes.com/sites/karlfreund/2026/10/22/cadence-announces-sovereign-ai-cloud-for-chip-design/">Cadence announces sovereign AI cloud for chip design (Forbes, Karl Freund; author discloses Cadence and NVIDIA as clients)</a></li><li><a href="https://futurumgroup.com/insights/nokia-designs-network-hardware-5x-faster-on-cadences-agentic-supercomputer/">Nokia designs network hardware 5x faster on Cadence's agentic supercomputer (Futurum)</a></li><li><a href="https://arxiv.org/abs/2610.28679">VerifierBench: Benchmarking the Generation of Executable Verifiers for LLM Agents (arXiv)</a></li><li><a href="https://en.wikipedia.org/wiki/Formal_equivalence_checking">Formal equivalence checking (Wikipedia)</a></li><li><a href="https://people.eecs.berkeley.edu/%7Ealanmi/publications/2012/iwls12_sec.pdf">Using Speculation for Sequential Equivalence Checking (Brayton, Een, Mishchenko, UC Berkeley)</a></li><li><a href="https://arxiv.org/abs/2610.21570">Independent Data-Integrity Verification for LLM-Driven Functional Coverage Closure in Hardware Design (arXiv)</a></li><li><a href="https://finviz.com/news/398910/cadence-announces-third-quarter-2026-financial-results-webcast">Cadence announces third quarter 2026 financial results webcast (Finviz)</a></li><li><a href="https://finance.yahoo.com/technology/ai/articles/cadence-release-q3-earnings-ai-143300571.html">Cadence to release Q3 earnings: will AI momentum drive growth? (Yahoo Finance / Zacks)</a></li></ul><p>Researched and written by Claude; voiced with synthetic speech.</p>]]></description>
+      <itunes:summary>Siemens and NVIDIA's agent-run 3D-IC thermal workflow, Cadence's sovereign AI platform and Nokia's 5x claim, VerifierBench on AI-written checkers, an explainer on equivalence checking, and a verification corner on why 100% coverage isn't proof the data was right.</itunes:summary>
+      <itunes:episode>2</itunes:episode>
+      <itunes:duration>00:14:13</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <enclosure url="https://marshallversteeg-cloud.github.io/the-signoff/episodes/002/episode.mp3" length="6827825" type="audio/mpeg"/>
+    </item>
+    <item>
       <title>1. Spec to layout: how far can agents get?</title>
       <guid isPermaLink="false">signoff-ep001</guid>
       <pubDate>Sat, 24 Oct 2026 12:00:00 +0000</pubDate>
