@@ -103,6 +103,57 @@
       "audio": "episodes/002/episode.mp3",
       "bytes": 6827825,
       "seconds": 853
+    },
+    {
+      "number": 3,
+      "title": "Trained against the tools",
+      "date": "2026-11-02",
+      "summary": "Cadence's Maestro models and Q3 results, ChipAgents moving into analog with fine-tuned Nemotron models, a deep dive on training AI against EDA tools and why the grader is the part to watch, and a verification corner on Harmonic's Aristotle proving properties of Verilog.",
+      "sources": [
+        [
+          "Cadence introduces Maestro, a domain-specialized AI model portfolio (Business Wire)",
+          "https://www.businesswire.com/news/home/20261026715429/en"
+        ],
+        [
+          "Cadence unveils Nvidia-backed AI models that chipmakers can run in-house (Reuters via The Star)",
+          "https://www.thestar.com.my/tech/tech-news/2026/10/26/cadence-unveils-nvidia-backed-ai-models-that-chipmakers-can-run-in-house"
+        ],
+        [
+          "Cadence Maestro puts frontier-class reinforcement learning behind chip design agents (Futurum)",
+          "https://futurumgroup.com/insights/cadence-maestro-puts-frontier-class-reinforcement-learning-behind-chip-design-agents/"
+        ],
+        [
+          "Cadence Q3 2026 financial results, Form 8-K Exhibit 99.1 (SEC)",
+          "https://www.sec.gov/Archives/edgar/data/0000813672/000081367226000116/cdns10262026ex9901.htm"
+        ],
+        [
+          "Cadence Q3 FY 2026: AI agents expand design workflow adoption (Futurum)",
+          "https://futurumgroup.com/insights/cadence-q3-fy-2026-ai-agents-expand-design-workflow-adoption/"
+        ],
+        [
+          "ChipAgents expands full-stack agentic AI across digital and analog chip design (ChipAgents)",
+          "https://chipagents.ai/newsroom/chipagents-ic-star-full-stack-agentic-ai"
+        ],
+        [
+          "Harmonic adds formal checks for C software and Verilog hardware (EconoTimes)",
+          "https://econotimes.com/Harmonic-Adds-Formal-Checks-for-C-Software-and-Verilog-Hardware-1764657"
+        ],
+        [
+          "Harmonic expands its math-proving AI into C and Verilog code checks (Startup Fortune)",
+          "https://startupfortune.com/harmonic-expands-its-math-proving-ai-into-c-and-verilog-code-checks/"
+        ],
+        [
+          "Aristotle achieves 96.8% on VERINA, December 2025 (Lean Zulip archive)",
+          "https://leanprover-community.github.io/archive/stream/219941-Machine-Learning-for-Theorem-Proving/topic/Aristotle.20achieves.20SOTA.2096.2E8.25.20proof.20generation.20on.20VERINA.html"
+        ],
+        [
+          "VerifierBench: Benchmarking the Generation of Executable Verifiers for LLM Agents (arXiv)",
+          "https://arxiv.org/abs/2610.28679"
+        ]
+      ],
+      "audio": "episodes/003/episode.mp3",
+      "bytes": 6719155,
+      "seconds": 840
     }
   ]
 }

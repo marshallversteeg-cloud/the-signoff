@@ -13,6 +13,17 @@
     <itunes:explicit>false</itunes:explicit>
     <itunes:block>Yes</itunes:block>
     <item>
+      <title>3. Trained against the tools</title>
+      <guid isPermaLink="false">signoff-ep003</guid>
+      <pubDate>Mon, 02 Nov 2026 12:00:00 +0000</pubDate>
+      <description><![CDATA[<p>Cadence's Maestro models and Q3 results, ChipAgents moving into analog with fine-tuned Nemotron models, a deep dive on training AI against EDA tools and why the grader is the part to watch, and a verification corner on Harmonic's Aristotle proving properties of Verilog.</p><p>Sources:</p><ul><li><a href="https://www.businesswire.com/news/home/20261026715429/en">Cadence introduces Maestro, a domain-specialized AI model portfolio (Business Wire)</a></li><li><a href="https://www.thestar.com.my/tech/tech-news/2026/10/26/cadence-unveils-nvidia-backed-ai-models-that-chipmakers-can-run-in-house">Cadence unveils Nvidia-backed AI models that chipmakers can run in-house (Reuters via The Star)</a></li><li><a href="https://futurumgroup.com/insights/cadence-maestro-puts-frontier-class-reinforcement-learning-behind-chip-design-agents/">Cadence Maestro puts frontier-class reinforcement learning behind chip design agents (Futurum)</a></li><li><a href="https://www.sec.gov/Archives/edgar/data/0000813672/000081367226000116/cdns10262026ex9901.htm">Cadence Q3 2026 financial results, Form 8-K Exhibit 99.1 (SEC)</a></li><li><a href="https://futurumgroup.com/insights/cadence-q3-fy-2026-ai-agents-expand-design-workflow-adoption/">Cadence Q3 FY 2026: AI agents expand design workflow adoption (Futurum)</a></li><li><a href="https://chipagents.ai/newsroom/chipagents-ic-star-full-stack-agentic-ai">ChipAgents expands full-stack agentic AI across digital and analog chip design (ChipAgents)</a></li><li><a href="https://econotimes.com/Harmonic-Adds-Formal-Checks-for-C-Software-and-Verilog-Hardware-1764657">Harmonic adds formal checks for C software and Verilog hardware (EconoTimes)</a></li><li><a href="https://startupfortune.com/harmonic-expands-its-math-proving-ai-into-c-and-verilog-code-checks/">Harmonic expands its math-proving AI into C and Verilog code checks (Startup Fortune)</a></li><li><a href="https://leanprover-community.github.io/archive/stream/219941-Machine-Learning-for-Theorem-Proving/topic/Aristotle.20achieves.20SOTA.2096.2E8.25.20proof.20generation.20on.20VERINA.html">Aristotle achieves 96.8% on VERINA, December 2025 (Lean Zulip archive)</a></li><li><a href="https://arxiv.org/abs/2610.28679">VerifierBench: Benchmarking the Generation of Executable Verifiers for LLM Agents (arXiv)</a></li></ul><p>Researched and written by Claude; voiced with synthetic speech.</p>]]></description>
+      <itunes:summary>Cadence's Maestro models and Q3 results, ChipAgents moving into analog with fine-tuned Nemotron models, a deep dive on training AI against EDA tools and why the grader is the part to watch, and a verification corner on Harmonic's Aristotle proving properties of Verilog.</itunes:summary>
+      <itunes:episode>3</itunes:episode>
+      <itunes:duration>00:14:00</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <enclosure url="https://marshallversteeg-cloud.github.io/the-signoff/episodes/003/episode.mp3" length="6719155" type="audio/mpeg"/>
+    </item>
+    <item>
       <title>2. Proving nothing changed</title>
       <guid isPermaLink="false">signoff-ep002</guid>
       <pubDate>Mon, 26 Oct 2026 12:00:00 +0000</pubDate>
