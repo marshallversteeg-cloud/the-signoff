@@ -154,6 +154,61 @@
       "audio": "episodes/003/episode.mp3",
       "bytes": 6719155,
       "seconds": 840
+    },
+    {
+      "number": 4,
+      "title": "Green for an empty reason",
+      "date": "2026-11-09",
+      "summary": "Europe's €525 million chip design platform, Empyrean's bid for EasyLogic, UC San Diego and Qualcomm's AI-for-design initiative and Silvaco's agentic claims, an explainer on vacuity built around the 'Verified but Vacuous' paper, and a verification corner on an Arm engineer's study in which three AI agents hit 100% of their own coverage goals and signed off with bugs still in the design.",
+      "sources": [
+        [
+          "EU €525 million investment set to drive new generation of European chip design companies (European Commission)",
+          "https://digital-strategy.ec.europa.eu/en/news/eu525-million-investment-set-drive-new-generation-european-chip-design-companies"
+        ],
+        [
+          "EU launches €525 million chip design platform for start-ups and SMEs (Commission press text, republished)",
+          "https://www.lovguiden.dk/en/det-offentlige/europa-kommissionen-press-corner/2026-11-04-eu-launches-525-million-chip-design-platform-for-start-ups-and-smes"
+        ],
+        [
+          "Synopsys expands access to advanced chip design capabilities through European Chips Design Platform (EEJournal)",
+          "https://www.eejournal.com/industry_news/synopsys-expands-access-to-advanced-chip-design-capabilities-through-european-chips-design-platform/"
+        ],
+        [
+          "Huawei partner Empyrean buys Chinese chip design startup (Seoul Economic Daily)",
+          "https://en.sedaily.com/international/2026/11/04/huawei-partner-empyrean-buys-chinese-chip-design-startup"
+        ],
+        [
+          "Empyrean proposes buying 50.38% of EasyLogic for CNY 218.8 million (Neoteo)",
+          "https://www.neoteo.com/en/empyrean-proposes-buying-5038-of-easy-logic-for-cny-2188-million"
+        ],
+        [
+          "UC San Diego launches AI-driven chip design research initiative supported by Qualcomm Technologies (UC San Diego)",
+          "https://today.ucsd.edu/story/uc-san-diego-launches-ai-driven-chip-design-research-initiative-supported-by-qualcomm-technologies"
+        ],
+        [
+          "Silvaco third quarter 2026 results, Form 8-K Exhibit 99.1 (SEC)",
+          "https://www.sec.gov/Archives/edgar/data/0001943289/000162828026070138/exhibit991earningsreleased.htm"
+        ],
+        [
+          "Verified but Vacuous: Three Failure Surfaces of LLM-Driven Verified Code Generation (arXiv)",
+          "https://arxiv.org/abs/2611.05590"
+        ],
+        [
+          "Putting AI To The Test (Semiconductor Engineering, Brian Bailey)",
+          "https://semiengineering.com/putting-ai-to-the-test/"
+        ],
+        [
+          "ICCAD 2026",
+          "https://iccad.com/"
+        ],
+        [
+          "Synopsys announces earnings release date for fourth quarter and fiscal year 2026 (Synopsys)",
+          "https://news.synopsys.com/2026-11-05-Synopsys-Announces-Earnings-Release-Date-For-Fourth-Quarter-and-Fiscal-Year-2026"
+        ]
+      ],
+      "audio": "episodes/004/episode.mp3",
+      "bytes": 6673807,
+      "seconds": 834
     }
   ]
 }
